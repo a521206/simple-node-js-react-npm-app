@@ -8,7 +8,7 @@ pipeline {
   }
   
      parameters {
-        choice(defaultValue: 'No', choices: 'Yes\nNo', description: 'Deploy Application?', name: 'userFlag')
+        choice(choices: 'Yes\nNo', description: 'Deploy Application?', name: 'userFlag')
     }
   
   stages {
