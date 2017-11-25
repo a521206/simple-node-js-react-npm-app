@@ -6,7 +6,19 @@ pipeline {
     }
     
   }
+  
+  
+      parameters {
+        booleanParam(defaultValue: true, description: '', name: 'userFlag')
+    }
+
   stages {
+   stage("foo") {
+            steps {
+                echo "flag: ${params.userFlag}"
+            }
+        }
+    
     stage('Build') {
       steps {
         sh 'npm install'
