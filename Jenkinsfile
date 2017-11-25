@@ -31,6 +31,9 @@ pipeline {
       }
     }
     stage('Deliver') {
+      when {
+                expression { params.userFlag == 'US-EAST-1' }
+            }
       steps {
         sh './jenkins/scripts/deliver.sh'
         input 'Finished using the web site? (Click "Proceed" to continue)'
