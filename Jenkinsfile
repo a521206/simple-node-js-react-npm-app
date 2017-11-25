@@ -8,9 +8,7 @@ pipeline {
   }
   
      parameters {
-        string(defaultValue: "TEST", description: 'What environment?', name: 'userFlag')
-        // choices are newline separated
-        choice(choices: 'US-EAST-1\nUS-WEST-2', description: 'What AWS region?', name: 'region')
+        choice(choices: 'Yes\nNo', description: 'Deploy Application?', name: 'userFlag')
     }
   
   stages {
@@ -32,7 +30,7 @@ pipeline {
     }
     stage('Deliver') {
       when {
-                expression { params.userFlag == 'US-EAST-1' }
+                expression { params.userFlag == 'Yes' }
             }
       steps {
         sh './jenkins/scripts/deliver.sh'
