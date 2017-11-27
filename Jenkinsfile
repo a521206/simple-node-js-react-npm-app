@@ -7,10 +7,10 @@ pipeline {
     
   }
   
-     parameters {
+  //   parameters {
         // choice(choices: 'Yes\nNo', description: 'Deploy Application?', name: 'userFlag')
-        booleanParam(name: 'userFlag', defaultValue: false, description: 'Deploy Application?') 
-    }
+  //      booleanParam(name: 'userFlag', defaultValue: false, description: 'Deploy Application?') 
+  // }
   
   stages {
    stage("foo") {
@@ -35,7 +35,7 @@ pipeline {
             }
       steps {
         sh './jenkins/scripts/deliver.sh'
-        input 'Finished using the web site? (Click "Proceed" to continue)'
+        // input 'Finished using the web site? (Click "Proceed" to continue)'
         sh './jenkins/scripts/kill.sh'
       }
     }
